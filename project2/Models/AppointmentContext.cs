@@ -11,6 +11,7 @@ namespace project2.Models
         public AppointmentContext (DbContextOptions<AppointmentContext> options) : base (options)
         {
         }
+
         public DbSet<Appointment> Appointments { get; set; }
 
         protected override void OnModelCreating(ModelBuilder mb)

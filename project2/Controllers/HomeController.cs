@@ -24,6 +24,7 @@ namespace project2.Controllers
             return View();
         }
 
+
         [HttpGet]
         public IActionResult AddAppointment()
         {
@@ -43,6 +44,17 @@ namespace project2.Controllers
             return View("Index");
 
         }
+
+
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+        public IActionResult ViewAppointments()
+        {
+            return View();
+        }
+
 
       
     }
