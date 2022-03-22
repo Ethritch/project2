@@ -13,6 +13,7 @@ namespace project2.Models
         public int AppointmentID { get; set; }
 
         public DateTime Time { get; set; }
+
         [Required]
         public string GroupName { get; set; }
         [Required]
