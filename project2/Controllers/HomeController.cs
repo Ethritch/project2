@@ -23,6 +23,22 @@ namespace project2.Controllers
             return View();
         }
 
+
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+        public IActionResult ViewAppointments()
+        {
+            return View();
+        }
+
+        public IActionResult AddAppointments()
+        {
+            return View();
+        }
+
+
       
     }
 }
