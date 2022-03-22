@@ -26,7 +26,7 @@ namespace project2.Controllers
 
 
         [HttpGet]
-        public IActionResult AddAppointment()
+        public IActionResult AddAppointment(DateTime)
         {
             return View();
         }

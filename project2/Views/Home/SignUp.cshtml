@@ -2,6 +2,8 @@
     ViewData["Title"] = "Sign up for Appointment";
 }
 
+@model List<Appointment>
+
 <a class="btn btn-secondary">Previous Day</a>
 <a class="btn btn-secondary">Next Day</a>
 
@@ -10,19 +12,20 @@
 
 <h2>Please select a time for your appointment:</h2>
 <h4>Morning Availability</h4>
-<a asp-controller="Home" asp-action="AddAppointments" class="btn btn-primary">8:00 AM</a>
-<a asp-controller="Home" asp-action="AddAppointments" class="btn btn-primary">9:00 AM</a>
-<a asp-controller="Home" asp-action="AddAppointments" class="btn btn-primary">10:00 AM</a>
-<a asp-controller="Home" asp-action="AddAppointments" class="btn btn-primary">11:00 AM</a>
+
+<a asp-controller="Home" asp-action="AddAppointment" asp-route-time="8:00:00" class="btn btn-primary">8:00 AM</a>
+<a asp-controller="Home" asp-action="AddAppointment" class="btn btn-primary">9:00 AM</a>
+<a asp-controller="Home" asp-action="AddAppointment" class="btn btn-primary">10:00 AM</a>
+<a asp-controller="Home" asp-action="AddAppointment" class="btn btn-primary">11:00 AM</a>
 <br /><br />
-<h4>Afternoon Availability</h4>RootRoot
-<a asp-controller="Home" asp-action="AddAppointments" class="btn btn-primary">12:00 PM</a>
-<a asp-controller="Home" asp-action="AddAppointments" class="btn btn-primary">1:00 PM</a>
-<a asp-controller="Home" asp-action="AddAppointments" class="btn btn-primary">2:00 PM</a>
-<a asp-controller="Home" asp-action="AddAppointments" class="btn btn-primary">3:00 PM</a>
-<a asp-controller="Home" asp-action="AddAppointments" class="btn btn-primary">4:00 PM</a>
-<a asp-controller="Home" asp-action="AddAppointments" class="btn btn-primary">5:00 PM</a>
-<a asp-controller="Home" asp-action="AddAppointments" class="btn btn-primary">6:00 PM</a>
-<a asp-controller="Home" asp-action="AddAppointments" class="btn btn-primary">7:00 PM</a>
-<a asp-controller="Home" asp-action="AddAppointments" class="btn btn-primary">8:00 PM</a>
+<h4>Afternoon Availability</h4>
+<a asp-controller="Home" asp-action="AddAppointment" class="btn btn-primary">12:00 PM</a>
+<a asp-controller="Home" asp-action="AddAppointment" class="btn btn-primary">1:00 PM</a>
+<a asp-controller="Home" asp-action="AddAppointment" class="btn btn-primary">2:00 PM</a>
+<a asp-controller="Home" asp-action="AddAppointment" class="btn btn-primary">3:00 PM</a>
+<a asp-controller="Home" asp-action="AddAppointment" class="btn btn-primary">4:00 PM</a>
+<a asp-controller="Home" asp-action="AddAppointment" class="btn btn-primary">5:00 PM</a>
+<a asp-controller="Home" asp-action="AddAppointment" class="btn btn-primary">6:00 PM</a>
+<a asp-controller="Home" asp-action="AddAppointment" class="btn btn-primary">7:00 PM</a>
+<a asp-controller="Home" asp-action="AddAppointment" class="btn btn-primary">8:00 PM</a>
 

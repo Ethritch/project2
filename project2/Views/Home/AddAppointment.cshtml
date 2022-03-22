@@ -8,6 +8,9 @@
     <form method="post">
         <div asp-validation-summary="All"></div>
 
+        <label asp-for="Time">Time</label>
+        <input asp-for="Time" value="" readonly/><br />
+
         <label asp-for="GroupName">Group Name</label>
         <input asp-for="GroupName" /><br />
 
@@ -20,7 +23,7 @@
         <label asp-for="Phone">Phone Number</label>
         <input asp-for="Phone" /><br />
 
-        <button class="btn btn-primary"type="submit">Sign Up</button>s
+        <button class="btn btn-primary" type="submit">Sign Up</button>
     </form>
 
 </div>
