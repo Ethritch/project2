@@ -11,7 +11,8 @@ namespace project2.Controllers
 {
     public class HomeController : Controller
     {
-       
+
+        private AppointmentContext AppointmentContext { get; set; }
 
         public HomeController()
         {
@@ -21,6 +22,26 @@ namespace project2.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult AddAppointment()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddAppointment(Appointment app)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            AppointmentContext.Add(app);
+            AppointmentContext.SaveChanges();
+            return View("Index");
+
         }
 
       
