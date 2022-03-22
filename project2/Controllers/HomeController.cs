@@ -41,7 +41,7 @@ namespace project2.Controllers
 
             AppointmentContext.Add(app);
             AppointmentContext.SaveChanges();
-            return View("Index");
+            return View("Confirmation", app);
 
         }
 
