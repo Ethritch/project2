@@ -73,8 +73,37 @@ namespace project2.Controllers
 
             return View(appointment);
         }
+        [HttpGet]
+        public IActionResult Edit(int appointmentId, int timeId)
+        {
+            ViewBag.Time = AppointmentContext.Time.Single(x => x.TimeId == timeId).AppointmentTime;
+            ViewBag.ID = AppointmentContext.Time.Single(x => x.TimeId == timeId).TimeId;
+
+            var appointment = AppointmentContext.Appointments.Single(x => x.AppointmentID == appointmentId);
+
+            return View("AddAppointment", appointment);
+        }
+        [HttpPost]
+        public IActionResult Edit(Appointment appointment, int timeID)
+        {
+            if (ModelState.IsValid)
+            {
+                AppointmentContext.Update(appointment);
+                AppointmentContext.SaveChanges();
+
+                return RedirectToAction("ViewAppointments");
+            }
+            else // if invalid
+            {
+                return View("AddAppointment");
+            }
+        }
+        //[HttpGet]
+        //public IActionResult Delete()
+        //{
+
+        //}
 
 
-      
     }
 }

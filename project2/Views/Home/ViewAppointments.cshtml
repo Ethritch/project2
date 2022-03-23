@@ -27,7 +27,7 @@
             <td>@x.Email</td>
             <td>@x.Phone</td>
 
-            <td><a class="btn btn-info">Edit</a></td>
+            <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-appointmentId ="@x.AppointmentID" asp-route-timeId ="@x.TimeId">Edit</a></td>
             <td><a class="btn btn-danger">Delete</a></td>
         </tr>
         }
