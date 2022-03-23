@@ -98,11 +98,20 @@ namespace project2.Controllers
                 return View("AddAppointment");
             }
         }
-        //[HttpGet]
-        //public IActionResult Delete()
-        //{
+        [HttpGet]
+        public IActionResult Delete (int appointmentId, int timeId)
+        {
+            var appointment = AppointmentContext.Appointments.Single(x => x.AppointmentID == appointmentId);
+            return View(appointment);
+        }
+        [HttpPost] 
+        public IActionResult Delete (Appointment app)
+        {
+            AppointmentContext.Appointments.Remove(app);
+            AppointmentContext.SaveChanges();
 
-        //}
+            return RedirectToAction("ViewAppointments");
+        }
 
 
     }
