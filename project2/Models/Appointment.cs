@@ -10,23 +10,23 @@ namespace project2.Models
     public class Appointment
     {
         [Key]
-        [Required]
+        [Required (ErrorMessage = "AppId missing")]
         public int AppointmentID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Group missing")]
         public string GroupName { get; set; }
 
         [Required]
         [Range(1,15, ErrorMessage = "Must enter a group size between 1-15")]
         public int GroupSize { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "mail missing")]
         public string Email { get; set; }
 
         public string Phone { get; set; }
 
         //Foreign Key relationship
-        [Required]
+        [Required(ErrorMessage = "TimeId missing")]
         public int TimeId { get; set; }
         public Time Time { get; set; }
     }
