@@ -597,6 +597,9 @@ namespace project2.Migrations
                             TimeId = 91,
                             AppointmentTime = new DateTime(2022, 4, 7, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             taken = false
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                         });
                 });
