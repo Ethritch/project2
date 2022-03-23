@@ -30,6 +30,10 @@ namespace project2.Models
         [Required]
         public int TimeId { get; set; }
         public Time Time { get; set; }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+
 >>>>>>> Stashed changes
     }
 }

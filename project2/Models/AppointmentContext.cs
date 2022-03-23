@@ -22,7 +22,7 @@ namespace project2.Models
                 );
 =======
             mb.Entity<Time>().HasData(
-            //Times for day 1
+             //Times for day 1
              new Time { TimeId = 1, AppointmentTime = new DateTime(2022, 04, 01, 08, 00, 00), taken = false },
              new Time { TimeId = 2, AppointmentTime = new DateTime(2022, 04, 01, 09, 00, 00), taken = false },
              new Time { TimeId = 3, AppointmentTime = new DateTime(2022, 04, 01, 10, 00, 00), taken = false },
@@ -126,7 +126,10 @@ namespace project2.Models
              new Time { TimeId = 89, AppointmentTime = new DateTime(2022, 04, 07, 18, 00, 00), taken = false },
              new Time { TimeId = 90, AppointmentTime = new DateTime(2022, 04, 07, 19, 00, 00), taken = false },
              new Time { TimeId = 91, AppointmentTime = new DateTime(2022, 04, 07, 20, 00, 00), taken = false }
+<<<<<<< Updated upstream
             
+=======
+>>>>>>> Stashed changes
              );
 
             //mb.Entity<Appointment>().HasData(
