@@ -22,5 +22,14 @@ namespace project2.Models
         [Required]
         public string Email { get; set; }
         public string Phone { get; set; }
+<<<<<<< Updated upstream
+=======
+
+        //Foreign Key relationship
+        [ForeignKey("Time")]
+        [Required]
+        public int TimeId { get; set; }
+        public Time Time { get; set; }
+>>>>>>> Stashed changes
     }
 }

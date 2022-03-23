@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using project2.Models;
 
 namespace project2.Migrations
 {
     [DbContext(typeof(AppointmentContext))]
-    partial class AppointmentContextModelSnapshot : ModelSnapshot
+    [Migration("20220323161749_update")]
+    partial class update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,24 +38,35 @@ namespace project2.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Time")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("TimeId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("AppointmentID");
 
+                    b.HasIndex("TimeId");
+
                     b.ToTable("Appointments");
+                });
+
+            modelBuilder.Entity("project2.Models.Time", b =>
+                {
+                    b.Property<int>("TimeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("AppointmentTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<bool>("taken")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("TimeId");
+
+                    b.ToTable("Time");
 
                     b.HasData(
                         new
                         {
-<<<<<<< Updated upstream
-                            AppointmentID = -1,
-                            Email = "Test@test.net",
-                            GroupName = "Tester",
-                            GroupSize = 3,
-                            Phone = "517-879-6543",
-                            Time = new DateTime(2022, 3, 30, 1, 14, 50, 0, DateTimeKind.Unspecified)
-=======
                             TimeId = 1,
                             AppointmentTime = new DateTime(2022, 4, 1, 8, 0, 0, 0, DateTimeKind.Unspecified),
                             taken = false
@@ -597,8 +610,16 @@ namespace project2.Migrations
                             TimeId = 91,
                             AppointmentTime = new DateTime(2022, 4, 7, 20, 0, 0, 0, DateTimeKind.Unspecified),
                             taken = false
->>>>>>> Stashed changes
                         });
+                });
+
+            modelBuilder.Entity("project2.Models.Appointment", b =>
+                {
+                    b.HasOne("project2.Models.Time", "Time")
+                        .WithMany()
+                        .HasForeignKey("TimeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
