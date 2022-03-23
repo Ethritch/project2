@@ -7,8 +7,6 @@
 <a class="btn btn-secondary">Previous Day</a>
 <a class="btn btn-secondary">Next Day</a>
 
-<p>This is where the date will go</p>
-
 
 <h2>Please select a time for your appointment:</h2>
 <h4>Morning Availability</h4>
@@ -18,7 +16,11 @@
   if (x.taken == false)
   {
     <a asp-controller="Home" asp-action="AddAppointment" asp-route-id="@x.TimeId" class="btn btn-primary">@x.AppointmentTime.ToString("hh:mm tt")</a>
-  }  
+  }
+  else
+  {
+    <a class="btn btn-primary disabled">@x.AppointmentTime.ToString("hh:mm tt")</a>
+  }
 }
 
 @*<a asp-controller="Home" asp-action="AddAppointment" asp-route-time="1" class="btn btn-primary">8:00 AM</a>
