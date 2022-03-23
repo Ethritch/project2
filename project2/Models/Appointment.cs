@@ -26,9 +26,8 @@ namespace project2.Models
         public string Phone { get; set; }
 
         //Foreign Key relationship
-        [ForeignKey("Time")]
         [Required]
         public int TimeId { get; set; }
-        public Time Times { get; set; }
+        public Time Time { get; set; }
     }
 }
