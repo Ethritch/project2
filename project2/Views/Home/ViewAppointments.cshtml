@@ -1,7 +1,36 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 }
 
-View all the appointments!
+@model List<Appointment>
+
+<h1>Appointments</h1>
+
+<table class="table table-bordered table-hover">
+    
+    <thead>
+        <tr>
+            <td>Group Name</td>
+            <td>Group Size</td>
+            <td>Appointment</td>
+            <td>Email</td>
+            <td>Phone Number</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var x in Model)
+        {
+        <tr>
+            <td>@x.GroupName</td>
+            <td>@x.GroupSize</td>
+            <td>@x.Time.AppointmentTime</td>
+            <td>@x.Email</td>
+            <td>@x.Phone</td>
+
+            <td><a class="btn btn-info">Edit</a></td>
+            <td><a class="btn btn-danger">Delete</a></td>
+        </tr>
+        }
+    </tbody>
+
+</table>

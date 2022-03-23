@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using project2.Models;
 using System;
@@ -14,9 +15,10 @@ namespace project2.Controllers
 
         private AppointmentContext AppointmentContext { get; set; }
 
-        public HomeController()
+        public HomeController(AppointmentContext someName)
         {
-            
+            //Configures connection to database
+            AppointmentContext = someName;
         }
 
         public IActionResult Index()
@@ -26,33 +28,50 @@ namespace project2.Controllers
 
 
         [HttpGet]
-        public IActionResult AddAppointment(DateTime)
+        public IActionResult AddAppointment(int id)
         {
+
+            //var time = AppointmentContext.Time.SingleOrDefault(x => x.TimeId == id);
+            ViewBag.Time = AppointmentContext.Time.Single(x => x.TimeId == id).AppointmentTime;
+            ViewBag.ID = AppointmentContext.Time.Single(x => x.TimeId == id).TimeId;
+
             return View();
         }
 
         [HttpPost]
-        public IActionResult AddAppointment(Appointment app)
+        public IActionResult AddAppointment(Appointment app, int timeID)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
 
+            var time = AppointmentContext.Time.Single(x => x.TimeId == timeID);
+
+            time.taken = true;
+
+            AppointmentContext.Update(time);
             AppointmentContext.Add(app);
             AppointmentContext.SaveChanges();
             return View("Confirmation", app);
 
         }
 
-
+        [HttpGet]
         public IActionResult SignUp()
         {
-            return View();
+            var times = AppointmentContext.Time.ToList();
+
+            return View(times);
         }
         public IActionResult ViewAppointments()
         {
-            return View();
+            var appointment = AppointmentContext.Appointments
+                .OrderBy(x => x.TimeId)
+                .Include(x => x.Time)
+                .ToList();
+
+            return View(appointment);
         }
 
 
