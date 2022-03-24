@@ -6,15 +6,13 @@
 
 <div>
 
-    <form method="post" asp-route-timeID ="@ViewBag.ID">
+    <form method="post" asp-route-id="@ViewBag.ID">
         <div asp-validation-summary="All"></div>
 
         <div> Appointment for @ViewBag.Time:</div>
 
-        @*<label asp-for="TimeId">Time</label>
-        <input asp-for="TimeId"value="@ViewBag.Time" readonly/><br />*@
-
-        <input type="hidden" asp-for="AppointmentID"/> 
+        <input asp-for="TimeId" value="@ViewBag.ID" type="hidden" />
+        @*<input asp-for="AppointmentID" type="hidden"/>*@
 
         <label asp-for="GroupName">Group Name</label>
         <input asp-for="GroupName" /><br />
@@ -28,7 +26,8 @@
         <label asp-for="Phone">Phone Number</label>
         <input asp-for="Phone" /><br />
 
-        <input asp-for="TimeId" value="@ViewBag.ID" type="hidden"/>
+        @*<label asp-for="TimeId">Time</label>
+        <input asp-for="TimeId"value="@ViewBag.Time" readonly/><br />*@
 
         <button class="btn btn-primary" type="submit">Sign Up</button>
     </form>

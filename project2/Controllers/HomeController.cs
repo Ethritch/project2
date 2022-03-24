@@ -39,14 +39,18 @@ namespace project2.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddAppointment(Appointment app, int timeID)
+        public IActionResult AddAppointment(Appointment app, int id)
         {
             if (!ModelState.IsValid)
             {
+                ViewBag.Time = AppointmentContext.Time.Single(x => x.TimeId == id).AppointmentTime;
+                ViewBag.ID = AppointmentContext.Time.Single(x => x.TimeId == id).TimeId;
+                ViewBag.AllTime = AppointmentContext.Time.ToList();
+
                 return View();
             }
 
-            var time = AppointmentContext.Time.Single(x => x.TimeId == timeID);
+            var time = AppointmentContext.Time.Single(x => x.TimeId == id);
 
             time.taken = true;
 
@@ -54,7 +58,6 @@ namespace project2.Controllers
             AppointmentContext.Add(app);
             AppointmentContext.SaveChanges();
             return View("Confirmation", app);
-
         }
 
         [HttpGet]
@@ -78,13 +81,14 @@ namespace project2.Controllers
         {
             ViewBag.Time = AppointmentContext.Time.Single(x => x.TimeId == timeId).AppointmentTime;
             ViewBag.ID = AppointmentContext.Time.Single(x => x.TimeId == timeId).TimeId;
+            ViewBag.AllTime = AppointmentContext.Time.ToList();
 
             var appointment = AppointmentContext.Appointments.Single(x => x.AppointmentID == appointmentId);
 
             return View("AddAppointment", appointment);
         }
         [HttpPost]
-        public IActionResult Edit(Appointment appointment, int timeID)
+        public IActionResult Edit(Appointment appointment)
         {
             if (ModelState.IsValid)
             {

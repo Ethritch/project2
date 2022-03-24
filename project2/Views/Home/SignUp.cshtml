@@ -4,12 +4,126 @@
 
 @model List<Time>
 
-<a class="btn btn-secondary">Previous Day</a>
-<a class="btn btn-secondary">Next Day</a>
+<h2 class="text-center">Please select a time for your appointment:</h2><br /><br />
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            @foreach (var x in Model)
+            {
+                if (x.TimeId > 1 && x.TimeId % 13 == 1)
+                {
+                @:</div><div class="col-3">
+                }
 
+                if (x.TimeId <= 13)
+                {
+                    if (x.TimeId <= 1)
+                    {
+                        <h2>Monday:</h2>
+                    }
+                    if (x.taken == false)
+                    {
+                        <a asp-controller="Home" asp-action="AddAppointment" asp-route-id="@x.TimeId" class="btn btn-primary btn-block">@x.AppointmentTime.ToString("hh:mm tt")</a><br />
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary btn-block disabled">@x.AppointmentTime.ToString("hh:mm tt")</a><br />
+                    }
+                }
+                else if (x.TimeId <= 26)
+                {
+                    if (x.TimeId <= 14)
+                    {
+                        <h2>Tuesday:</h2>
+                    }
+                    if (x.taken == false)
+                    {
+                        <a asp-controller="Home" asp-action="AddAppointment" asp-route-id="@x.TimeId" class="btn btn-primary btn-block">@x.AppointmentTime.ToString("hh:mm tt")</a><br />
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary btn-block disabled">@x.AppointmentTime.ToString("hh:mm tt")</a><br />
+                    }
+                }
+                else if (x.TimeId <= 39)
+                {
+                    if (x.TimeId <= 27)
+                    {
 
-<h2>Please select a time for your appointment:</h2>
-<h4>Morning Availability</h4>
+                        <h2>Wednesday:</h2>
+                    }
+                    if (x.taken == false)
+                    {
+                        <a asp-controller="Home" asp-action="AddAppointment" asp-route-id="@x.TimeId" class="btn btn-primary btn-block">@x.AppointmentTime.ToString("hh:mm tt")</a><br />
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary btn-block disabled">@x.AppointmentTime.ToString("hh:mm tt")</a><br />
+                    }
+                }
+                else if (x.TimeId <= 52)
+                {
+                    if (x.TimeId <= 40)
+                    {
+                        <h2>Thursday:</h2>
+                    }
+                    if (x.taken == false)
+                    {
+                        <a asp-controller="Home" asp-action="AddAppointment" asp-route-id="@x.TimeId" class="btn btn-primary btn-block">@x.AppointmentTime.ToString("hh:mm tt")</a><br />
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary btn-block disabled">@x.AppointmentTime.ToString("hh:mm tt")</a><br />
+                    }
+                }
+                else if (x.TimeId <= 65)
+                {
+                    if (x.TimeId <= 53)
+                    {
+                        <h2>Friday:</h2>
+                    }
+                    if (x.taken == false)
+                    {
+                        <a asp-controller="Home" asp-action="AddAppointment" asp-route-id="@x.TimeId" class="btn btn-primary btn-block">@x.AppointmentTime.ToString("hh:mm tt")</a><br />
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary btn-block disabled">@x.AppointmentTime.ToString("hh:mm tt")</a><br />
+                    }
+                }
+                else if (x.TimeId <= 78)
+                {
+                    if (x.TimeId <= 66)
+                    {
+                        <h2>Saturday:</h2>
+                    }
+                    if (x.taken == false)
+                    {
+                        <a asp-controller="Home" asp-action="AddAppointment" asp-route-id="@x.TimeId" class="btn btn-primary btn-block">@x.AppointmentTime.ToString("hh:mm tt")</a><br />
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary btn-block disabled">@x.AppointmentTime.ToString("hh:mm tt")</a><br />
+                    }
+                }
+                else if (x.TimeId <= 91)
+                {
+                    if (x.TimeId <= 79)
+                    {
+                        <h2>Sunday:</h2>
+                    }
+                    if (x.taken == false)
+                    {
+                        <a asp-controller="Home" asp-action="AddAppointment" asp-route-id="@x.TimeId" class="btn btn-primary btn-block">@x.AppointmentTime.ToString("hh:mm tt")</a><br />
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary btn-block disabled">@x.AppointmentTime.ToString("hh:mm tt")</a><br />
+                    }
+                }
+            }
+    </div>
+</div>
 
 @*@foreach (var x in Model)
 
@@ -39,112 +153,3 @@
     <a asp-controller="Home" asp-action="AddAppointment" class="btn btn-primary">6:00 PM</a>
     <a asp-controller="Home" asp-action="AddAppointment" class="btn btn-primary">7:00 PM</a>
     <a asp-controller="Home" asp-action="AddAppointment" class="btn btn-primary">8:00 PM</a>*@
-
-@foreach (var x in Model)
-{
-    if (x.TimeId <= 13)
-    {
-        if (x.TimeId <= 1)
-        {
-            <h2>Monday:</h2>
-        }
-        if (x.taken == false)
-        {
-            <a asp-controller="Home" asp-action="AddAppointment" asp-route-id="@x.TimeId" class="btn btn-primary">@x.AppointmentTime.ToString("hh:mm tt")</a>
-        }
-        else
-        {
-            <a class="btn btn-primary disabled">@x.AppointmentTime.ToString("hh:mm tt")</a>
-        }
-    }
-    else if (x.TimeId <= 26)
-    {
-        if (x.TimeId <= 14)
-        {
-            <h2>Tuesday:</h2>
-        }
-        if (x.taken == false)
-        {
-            <a asp-controller="Home" asp-action="AddAppointment" asp-route-id="@x.TimeId" class="btn btn-primary">@x.AppointmentTime.ToString("hh:mm tt")</a>
-        }
-        else
-        {
-            <a class="btn btn-primary disabled">@x.AppointmentTime.ToString("hh:mm tt")</a>
-        }
-    }
-    else if (x.TimeId <= 39)
-    {
-        if (x.TimeId <= 27)
-        {
-            <h2>Wednesday:</h2>
-        }
-        if (x.taken == false)
-        {
-            <a asp-controller="Home" asp-action="AddAppointment" asp-route-id="@x.TimeId" class="btn btn-primary">@x.AppointmentTime.ToString("hh:mm tt")</a>
-        }
-        else
-        {
-            <a class="btn btn-primary disabled">@x.AppointmentTime.ToString("hh:mm tt")</a>
-        }
-    }
-    else if (x.TimeId <= 52)
-    {
-        if (x.TimeId <= 40)
-        {
-            <h2>Thursday:</h2>
-        }
-        if (x.taken == false)
-        {
-            <a asp-controller="Home" asp-action="AddAppointment" asp-route-id="@x.TimeId" class="btn btn-primary">@x.AppointmentTime.ToString("hh:mm tt")</a>
-        }
-        else
-        {
-            <a class="btn btn-primary disabled">@x.AppointmentTime.ToString("hh:mm tt")</a>
-        }
-    }
-    else if (x.TimeId <= 65)
-    {
-        if (x.TimeId <= 53)
-        {
-            <h2>Friday:</h2>
-        }
-        if (x.taken == false)
-        {
-            <a asp-controller="Home" asp-action="AddAppointment" asp-route-id="@x.TimeId" class="btn btn-primary">@x.AppointmentTime.ToString("hh:mm tt")</a>
-        }
-        else
-        {
-            <a class="btn btn-primary disabled">@x.AppointmentTime.ToString("hh:mm tt")</a>
-        }
-    }
-    else if (x.TimeId <= 78)
-    {
-        if (x.TimeId <= 66)
-        {
-            <h2>Saturday:</h2>
-        }
-        if (x.taken == false)
-        {
-            <a asp-controller="Home" asp-action="AddAppointment" asp-route-id="@x.TimeId" class="btn btn-primary">@x.AppointmentTime.ToString("hh:mm tt")</a>
-        }
-        else
-        {
-            <a class="btn btn-primary disabled">@x.AppointmentTime.ToString("hh:mm tt")</a>
-        }
-    }
-    else if (x.TimeId <= 91)
-    {
-        if (x.TimeId <= 79)
-        {
-            <h2>Sunday:</h2>
-        }
-        if (x.taken == false)
-        {
-            <a asp-controller="Home" asp-action="AddAppointment" asp-route-id="@x.TimeId" class="btn btn-primary">@x.AppointmentTime.ToString("hh:mm tt")</a>
-        }
-        else
-        {
-            <a class="btn btn-primary disabled">@x.AppointmentTime.ToString("hh:mm tt")</a>
-        }
-    }
-}
