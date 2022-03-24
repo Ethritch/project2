@@ -4,32 +4,37 @@
 
 @model project2.Models.Appointment
 
-<div>
+<div class="container d-flex justify-content-center">
 
-    <form method="post" asp-route-id="@ViewBag.ID">
+    <form class="form-horizontal" method="post" asp-route-id="@ViewBag.ID">
         <div asp-validation-summary="All"></div>
 
-        <div> Appointment for @ViewBag.Time:</div>
+        <h2 class="text-center"> Appointment for @ViewBag.Time</h2><br />
 
         <input asp-for="TimeId" value="@ViewBag.ID" type="hidden" />
         @*<input asp-for="AppointmentID" type="hidden"/>*@
 
-        <label asp-for="GroupName">Group Name</label>
-        <input asp-for="GroupName" /><br />
-
-        <label asp-for="GroupSize">Group Size</label>
-        <input asp-for="GroupSize" /><br />
-
-        <label asp-for="Email">Email</label>
-        <input asp-for="Email" /><br />
-
-        <label asp-for="Phone">Phone Number</label>
-        <input asp-for="Phone" /><br />
-
-        @*<label asp-for="TimeId">Time</label>
-        <input asp-for="TimeId"value="@ViewBag.Time" readonly/><br />*@
-
-        <button class="btn btn-primary" type="submit">Sign Up</button>
-    </form>
+        <div class="form-group">
+            <label asp-for="GroupName">Group Name</label>
+            <input class="form-control" asp-for="GroupName" />
+        </div>
+        <div class="form-group">
+            <label asp-for="GroupSize">Group Size</label>
+            <input class="form-control" asp-for="GroupSize" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Email">Email</label>
+            <input class="form-control" asp-for="Email" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Phone">Phone Number</label>
+            <input class="form-control" asp-for="Phone" />
+        </div>
+                @*<label asp-for="TimeId">Time</label>
+            <input asp-for="TimeId"value="@ViewBag.Time" readonly/><br />*@
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </div>
+</form>
 
 </div>
