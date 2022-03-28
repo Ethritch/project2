@@ -109,8 +109,12 @@ namespace project2.Controllers
             return View(appointment);
         }
         [HttpPost] 
-        public IActionResult Delete (Appointment app)
+        public IActionResult Delete (Appointment app, int timeId)
         {
+            var time = AppointmentContext.Time.Single(x => x.TimeId == timeId);
+            time.taken = false;
+
+            AppointmentContext.Update(time);
             AppointmentContext.Appointments.Remove(app);
             AppointmentContext.SaveChanges();
 
